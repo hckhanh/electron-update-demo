@@ -60,8 +60,14 @@ app.on('activate', () => {
 // create main BrowserWindow when electron is ready
 app.on('ready', () => {
   mainWindow = createMainWindow()
-  void autoUpdater.checkForUpdatesAndNotify();
 })
 
 autoUpdater.logger = require("electron-log")
 autoUpdater.logger.transports.file.level = "debug"
+
+setTimeout(() => {
+  void autoUpdater.checkForUpdatesAndNotify({
+    title: "A new update is available",
+    body: "Do you want to update now?"
+  });
+}, 10000)

@@ -1,3 +1,4 @@
+appId: "com.hckhanh.electron.demo"
 win:
   publish:
     - github
